@@ -1,0 +1,5 @@
+{
+    "mongodb_connection_string":"mongodb://yuheswari:Asuk_2627@mongodb.selfmade.ninja:27017/?authSource=users",
+    "mongodb_database":"yuheswari_iotcloud"
+}
+
