@@ -2,37 +2,18 @@ from flask import Flask, redirect, url_for, request, render_template
 import json
 import os
 import math
+from src import get_config
+basename = get_config("basename")
 
-app = Flask(__name__)
-basename = '/iotcloud'
-
-@app.route(basename + "/hello_world")
-def hello_world():
-    d = {
-        "username": whoami().strip(),
-        "env": "labs",
-        "avatar": "https://yuheswari.me/images5.png"
-    }
-    return render_template('helloworld.html', data=d)
-
+app = Flask(__name__,static_folder='assets',static_url_path= basename)
 
 @app.route(basename+"/dashboard")
 def dashboard():
-   return render_template('dashboard.html', data={
-      "title": "IoT Dashboard"
-   })
-
-@app.route('/')
-def hello():
-    return "<h1>Welcome to UKCREA</h1>"
-
-@app.route('/whoami')
-def whoami():
-    return os.popen('whoami').read()
-
-@app.route(basename + '/encode/<string>')  # encode the string ref http encoding
-def echo(string):
-   return string  # Ensure the function returns a valid response
+   session ={
+       "authenticated":True,
+       "username":"yuheswari2525",
+   }
+   return render_template('_master.html',session=session)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=7000, debug=True)
