@@ -16,11 +16,11 @@ def hello_world():
     return render_template('helloworld.html', data=d)
 
 
-@app.route(basename + "/dashboard")
+@app.route(basename+"/dashboard")
 def dashboard():
-    return render_template('dashboard.html', data={
-        "title":"IOT Dashboard"
-    })
+   return render_template('dashboard.html', data={
+      "title": "IoT Dashboard"
+   })
 
 @app.route('/')
 def hello():
