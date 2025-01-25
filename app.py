@@ -1,11 +1,11 @@
-from flask import Flask, redirect, url_for, request, render_template
+from flask import Flask, redirect, url_for, request, render_template,session
 import json
 import os
 import math
 from src import get_config
 basename = get_config("basename")
 app = Flask(__name__, static_folder='assets', static_url_path=basename)
-
+app.secret_key=get_config("secret_key")
 
 @app.route(basename+"/dashboard")
 def dashboard():
