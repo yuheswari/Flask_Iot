@@ -1,18 +1,47 @@
 <!doctype html>
 <html lang="en">
+<head>
     {% include "_head.html" %}
-    <body>
-        {% include "_header.html" %}
-        <div class="container-fluid">
-            <div class="row">
-                {% include "_nav.html" %}
-            
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                    {% block main %}{% endblock %}
-                </main>
-              </div>
+</head>
+<body>
+    {% include "_header.html" %}
+    <div class="container-fluid">
+        <div class="row">
+            {% include "_nav.html" %}
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <!-- Your main content goes here -->
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Don't have an account?
+                                    <a href="../pages/sign-up.html" class="relative z-10 font-semibold text-transparent bg-gradient-to-tl from-blue-600 to-cyan-400 bg-clip-text">Sign up</a>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="absolute top-0 hidden w-3/5 h-full -mr-32 overflow-hidden -skew-x-10 -right-40 rounded-bl-xl md:block">
+                                    <div class="absolute inset-x-0 top-0 z-0 h-full -ml-16 bg-cover skew-x-10" style="background-image: url('/iotcloud/img/curved-images/curved6.jpg')"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </div>
-        {% include "_bottom_js.html" %}
-    </body>
+    </div>
+    <footer class="py-12">
+        <div class="container">
+            <div class="flex flex-wrap -mx-3">
+                <div class="flex-shrink-0 w-full max-w-full mx-auto mb-6 text-center lg:flex-0 lg:w-8/12">
+                    <a href="javascript:;" target="_blank" class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12"> Company </a>
+                    <a href="javascript:;" target="_blank" class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12"> About Us </a>
+                    <a href="javascript:;" target="_blank" class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12"> Team </a>
+                    <a href="javascript:;" target="_blank" class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12"> Products </a>
+                    <a href="javascript:;" target="_blank" class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12"> Blog </a>
+                    <a href="javascript:;" target="_blank" class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12"> Pricing </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>
-
