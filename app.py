@@ -1,4 +1,5 @@
 from flask import Flask, redirect, url_for, request, render_template,session
+from src import get_config
 import json
 import os
 import math
@@ -28,17 +29,16 @@ def authenticate():
          username = request.form['username']
          password = request.form['password']
          try:
-            User.login(username,password)
-            print("Login success")
+            User.login(username, password)
             return {
                 "message":"successfully authenticated",
                 "authenticated":True
             },200
             
          except Exception as e:
-            print("Login failed",e)
+            # print("Login failed",e)
             return {
-                "message":e,
+                "message": str(e),
                 "authenticated":False
             },401
       else:
