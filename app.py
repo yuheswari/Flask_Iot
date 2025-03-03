@@ -30,10 +30,12 @@ def authenticate():
          password = request.form['password']
          try:
             User.login(username, password)
-            return {
-                "message":"successfully authenticated",
-                "authenticated":True
-            },200
+            session['authenticated']=True
+            return redirect(url_for('dashboard'))
+            # return {
+            #     "message":"successfully authenticated",
+            #     "authenticated":True
+            # },200
             
          except Exception as e:
             # print("Login failed",e)
@@ -46,7 +48,19 @@ def authenticate():
             "message":"Not enough parameters",
             "authenticated":False
          },400
-   
+
+@app.route(basename+"/deauth")
+def deauth():
+   if session.get('authenticated'):#todo need more validation like expiry 
+      session['authenticated']=False
+      # return{
+        
+      #       "message":"Sucessfuly deauthenticated",
+      #       "authenticated":False
+
+         
+      #},200
+   return redirect(url_for('dashboard'))   
 
 
 
